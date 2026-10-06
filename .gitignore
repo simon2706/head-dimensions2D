@@ -20,3 +20,11 @@ build/
 # Environment / secrets
 .env
 .env.*
+
+# Node / frontend
+node_modules/
+frontend/dist/
+# Copied from node_modules on `npm install` (scripts/setup-assets.mjs)
+frontend/public/mediapipe/
+frontend/public/litert/
+*.tsbuildinfo
