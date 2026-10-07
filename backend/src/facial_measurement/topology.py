@@ -20,6 +20,12 @@ RIGHT_EYE_INNER = 133  # subject's right medial canthus
 LEFT_EYE_OUTER = 263
 LEFT_EYE_INNER = 362
 
+# --- Lateral periocular mesh vertices ------------------------------------------
+# First vertices of MediaPipe's rightEyeLower1 / leftEyeLower1 rings, just lateral
+# to the outer canthi (33/263). Mesh vertices, not an anatomical landmark.
+RIGHT_EYE_LATERAL_MESH = 130
+LEFT_EYE_LATERAL_MESH = 359
+
 # --- Eyelids (mid upper / mid lower), used for eye-opening checks ---------------
 RIGHT_EYE_UPPER_LID = 159
 RIGHT_EYE_LOWER_LID = 145

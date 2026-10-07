@@ -46,6 +46,7 @@ ContourMeasurementFn = Callable[[FaceGeometry, FaceContour, MeasurementConfig], 
 
 POINT_MEASUREMENTS: list[PointMeasurementFn] = [
     distances.outer_canthal_width,
+    distances.lateral_eye_mesh_width,
     distances.inner_canthal_width,
     distances.iris_center_distance,
     distances.outer_brow_span,
@@ -60,6 +61,7 @@ CONTOUR_MEASUREMENTS: list[ContourMeasurementFn] = [
 # Order of the exported feature vector (matches ``Features`` fields).
 FEATURE_IDS = [
     "outer_canthal_width",
+    "lateral_eye_mesh_width",
     "inner_canthal_width",
     "iris_center_distance",
     "outer_brow_span",

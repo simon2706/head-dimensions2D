@@ -32,6 +32,8 @@ def test_direct_measurements_on_synthetic_face():
     assert m["outer_canthal_width"].value_px == pytest.approx(140.0)
     assert m["outer_canthal_width"].value_mm == pytest.approx(140 * 0.585)
     assert m["outer_canthal_width"].landmarks == [33, 263]
+    assert m["lateral_eye_mesh_width"].value_px == pytest.approx(160.0)
+    assert m["lateral_eye_mesh_width"].landmarks == [130, 359]
     assert m["inner_canthal_width"].value_px == pytest.approx(40.0)
     assert m["iris_center_distance"].value_px == pytest.approx(90.0)
     assert m["outer_brow_span"].value_px == pytest.approx(190.0)
@@ -106,7 +108,7 @@ def test_lateral_measurements_warn_on_moderate_yaw():
 def test_features_vector():
     resp = run()
     features = resp.features.model_dump()
-    assert features["feature_schema_version"] == "1.1"
+    assert features["feature_schema_version"] == "1.2"
     assert features["scale_method"] == "iris_model"
     for mid in FEATURE_IDS:
         assert features[f"{mid}_mm"] == pytest.approx(by_id(resp)[mid].value_mm)

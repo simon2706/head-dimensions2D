@@ -35,6 +35,8 @@ def synthetic_face_px(
     pts[T.RIGHT_EYE_INNER] = [480, eye_y]
     pts[T.LEFT_EYE_INNER] = [520, eye_y]
     pts[T.LEFT_EYE_OUTER] = [570, eye_y]
+    pts[T.RIGHT_EYE_LATERAL_MESH] = [420, eye_y + 2]
+    pts[T.LEFT_EYE_LATERAL_MESH] = [580, eye_y + 2]
 
     for center_id, (h0, v0, h1, v1), cx, r in (
         (T.RIGHT_IRIS_CENTER, T.RIGHT_IRIS_CONTOUR, 455.0, IRIS_RADIUS),

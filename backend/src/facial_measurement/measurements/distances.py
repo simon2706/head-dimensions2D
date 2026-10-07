@@ -60,6 +60,21 @@ def outer_canthal_width(geom: FaceGeometry, config: MeasurementConfig) -> PixelM
     )
 
 
+def lateral_eye_mesh_width(geom: FaceGeometry, config: MeasurementConfig) -> PixelMeasurement:
+    return landmark_distance(
+        geom,
+        T.RIGHT_EYE_LATERAL_MESH,
+        T.LEFT_EYE_LATERAL_MESH,
+        id="lateral_eye_mesh_width",
+        name="Lateral eye mesh width",
+        type=MeasurementType.EXPERIMENTAL_PROXY,
+        definition=(
+            "Distance between mesh vertices 130 and 359, just lateral to the outer eye "
+            "corners. Repeatable mesh feature; not an anatomical landmark distance."
+        ),
+    )
+
+
 def inner_canthal_width(geom: FaceGeometry, config: MeasurementConfig) -> PixelMeasurement:
     return landmark_distance(
         geom,

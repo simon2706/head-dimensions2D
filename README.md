@@ -323,6 +323,7 @@ than once, the most lateral crossing is used. Both intersection points are retur
 | Metric (`id`) | Type | Definition | Landmarks | Known limitations |
 |---|---|---|---|---|
 | **Outer canthal width** (`outer_canthal_width`) | direct | Distance between the outer eye corners | 33 ↔ 263 | Corner localisation is affected by squinting and by eyelid shape. |
+| **Lateral eye mesh width** (`lateral_eye_mesh_width`) | experimental proxy | Distance between mesh vertices 130 and 359, the first points of MediaPipe's `rightEyeLower1` / `leftEyeLower1` rings, just lateral to the outer eye corners | 130 ↔ 359 | Mesh vertex, not a canthus; follows eyelid/periocular shape and squinting. |
 | **Inner canthal width** (`inner_canthal_width`) | direct | Distance between the inner eye corners | 133 ↔ 362 | Small value, so the relative error is larger; the caruncle region is low-contrast. |
 | **Iris-center distance** (`iris_center_distance`) | direct | Distance between the iris centres | 468 ↔ 473 | Depends on gaze and vergence; **not** a clinical distance PD. |
 | **Outer brow span** (`outer_brow_span`) | surface proxy | Distance between the lateral-most landmark of each MediaPipe eyebrow contour (picked per image in the face frame) | Right candidates {46,53,52,65,55,70,63,105,66,107}, left {276,283,282,295,285,300,293,334,296,336}; usually 70 ↔ 300 | Semantic contour point, not the last visible hair. Biased by brow raising or frowning. |
@@ -355,9 +356,11 @@ the outer canthi are at y = 2.66 and the brow tails (46/70) at y = 3.88–4.25.
 
 ### Feature vector
 
-`features` holds the 9 mm values under stable keys, plus `feature_schema_version` (currently
-`1.1`) and `scale_method` (added in 1.1; it records which iris source produced the mm values):
+`features` holds the 10 mm values under stable keys, plus `feature_schema_version` (currently
+`1.2`) and `scale_method` (added in 1.1; it records which iris source produced the mm values).
+`lateral_eye_mesh_width_mm` was added in 1.2:
 - `outer_canthal_width_mm`
+- `lateral_eye_mesh_width_mm`
 - `inner_canthal_width_mm`
 - `iris_center_distance_mm`
 - `outer_brow_span_mm`

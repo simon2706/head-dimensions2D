@@ -13,7 +13,7 @@ from facial_measurement.measurements.iris import ScaleResult
 from facial_measurement.measurements.pose import Pose
 from facial_measurement.measurements.quality import QualityReport
 
-FEATURE_SCHEMA_VERSION = "1.1"  # 1.1: added scale_method
+FEATURE_SCHEMA_VERSION = "1.2"  # 1.1: added scale_method; 1.2: added lateral_eye_mesh_width
 
 
 class Landmark(BaseModel):
@@ -110,6 +110,7 @@ class Features(BaseModel):
     feature_schema_version: str = FEATURE_SCHEMA_VERSION
     scale_method: str = Field(description="ScaleResult.method that produced the mm values.")
     outer_canthal_width_mm: float | None
+    lateral_eye_mesh_width_mm: float | None
     inner_canthal_width_mm: float | None
     iris_center_distance_mm: float | None
     outer_brow_span_mm: float | None
